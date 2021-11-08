@@ -16,3 +16,12 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/users', methods=['POST', 'GET'])
+def users():
+
+    response_body = {
+        "message": "Hello! I'm a message that came from the backend users"
+    }
+
+    return jsonify(response_body), 200
