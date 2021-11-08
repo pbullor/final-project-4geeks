@@ -20,8 +20,15 @@ def handle_hello():
 @api.route('/users', methods=['POST', 'GET'])
 def users():
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend users"
-    }
+    # get all the people
+    user_query = User.query.all()
 
-    return jsonify(response_body), 200
+    # map the results and your list of people  inside of the all_people variable
+    all_users = list(map(lambda x: x.serialize(), user_query))
+
+    # get just one person
+    # response_body = {
+    #     all_users
+    # }
+
+    return jsonify(all_users), 200
